@@ -1,6 +1,6 @@
 import numpy as np
 import mpmath as mp
-import math
+#import math
 
 mp.mp.dps = 100
 
@@ -28,13 +28,13 @@ def lll(basis, n, delta = 3/4):
     return basis
 
 def gram_schmidt(basis):
-    # input a list of lists (representing vectors in a basis), outputs gram schmidt basis 
+    # input a list of lists (representing vectors in a basis), outputs gram schmidt basis
     b0 = basis[0]
     gs_basis = np.array([b0])
     for vec_index in range(1,len(basis)):
         b = basis[vec_index]
         newb = np.copy(b)
-        for i in range(0,vec_index): 
+        for i in range(0,vec_index):
             newb = newb - proj(gs_basis[i],b)
         gs_basis = np.vstack([gs_basis,newb])
     return gs_basis
@@ -46,4 +46,3 @@ def proj(u,v):
 def gram_coeffs(u,v):
     # calculate coefficients of gram schmidt
     return np.dot(u,v) / np.dot(u,u)
-
