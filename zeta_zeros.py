@@ -30,12 +30,12 @@ def main():
     lines = input_file.readlines()
     input_file.close()
     low_prec_imag_part = [float(num) for num in lines[0:2000]]
-    
+
     # get high prec version of first 2000 zeros
     mp.mp.dps = 100
 
     if verbose is True: print(f"Calculating high precision version of zeros; going out to {mp.mp.dps} decimal places...")
-    
+
     high_prec_zeros = [mp.findroot(mp.zeta, 0.5 + imag_part*mp.j) for imag_part in low_prec_imag_part] if verbose is False else find_roots_verbose(low_prec_imag_part)
     zeta_derivatives = [mp.zeta(zero, derivative=1) for zero in high_prec_zeros] # evaluate derivative for each zero
 
