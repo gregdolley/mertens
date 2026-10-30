@@ -22,7 +22,7 @@ confidence=
 #
 # Kubeflow disables string-interpolation because we are starting to use f
 # style strings
-disable=invalid-name, missing-module-docstring, missing-function-docstring, broad-except, redefined-builtin
+disable=import-error, invalid-name, missing-module-docstring, missing-function-docstring, broad-except, redefined-builtin
 
 [BASIC]
 
